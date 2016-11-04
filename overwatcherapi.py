@@ -9,7 +9,7 @@ api = Api(app)
 
 class OverWatcher(Resource):
     def get(self, owUser):
-        list statBase[]
+        statBase = []
         page = requests.get('https://playoverwatch.com/en-us/career/psn/' + owUser)
         tree = html.fromstring(page.content)
         stat = tree.xpath('//div[@class="card-content"]//text()')
