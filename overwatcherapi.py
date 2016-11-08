@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restful import Resource, Api
+from competitive import build_competitive_average
 from lxml import html
 import requests
 
@@ -14,6 +15,7 @@ class OverWatcher(Resource):
         tree = html.fromstring(page.content)
         stat = tree.xpath('//div[@class="card-content"]//text()')
         stat1= tree.xpath('//div[@data-group-id="stats"]//text()')
+        stat2 = build_competitive_average(stat, 'averages')
         statBase.append(stat)
         statBase.append(stat1)
         return(statBase)
