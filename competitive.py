@@ -1,6 +1,6 @@
 import re
 
-def build_competitive_average(tree, averages):
+def build_competitive_average(tree):
     competitive_averages = {}
     for value in range(len(tree)):
         regexr = re.match(r'^.*?(?=-)', tree[value])

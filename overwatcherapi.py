@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from lxml import html
-from dictionary import build_competitive_average
+from competitive import build_competitive_average
 import requests
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ class OverWatcher(Resource):
         page = requests.get('https://playoverwatch.com/en-us/career/psn/' + owUser)
         tree = html.fromstring(page.content)
         stat1 = tree.xpath('//div[@id="competitive-play"]//div[@data-group-id="stats"]//text()')
-        averages = build_competitive_average(tree.xpath('//div[@id="competitive-play"]//ul//text()'), 'averages')
+        averages = build_competitive_average(tree.xpath('//div[@id="competitive-play"]//ul//text()'))
         statBase.append(averages)
         statBase.append(stat1)
         return(statBase)
