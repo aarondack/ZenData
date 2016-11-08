@@ -12,10 +12,9 @@ class OverWatcher(Resource):
         statBase = []
         page = requests.get('https://playoverwatch.com/en-us/career/psn/' + owUser)
         tree = html.fromstring(page.content)
-        stat = tree.xpath('//div[@id="competitive-play"]//ul//text()')
         stat1 = tree.xpath('//div[@id="competitive-play"]//div[@data-group-id="stats"]//text()')
-        stat2 = build_competitive_average(stat, 'averages')
-        statBase.append(stat)
+        averages = build_competitive_average(tree.xpath('//div[@id="competitive-play"]//ul//text()'), 'averages')
+        statBase.append(averages)
         statBase.append(stat1)
         return(statBase)
 
