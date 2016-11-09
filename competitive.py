@@ -28,3 +28,15 @@ def build_competitive_average(tree):
         if regexr:
             competitive_averages[regexr.group(0)] = tree[value-1]
     return competitive_averages
+
+def build_combat_total(tree, headers):
+    root_header = ''
+    competitive_stats = {}
+    for value in range(len(tree) - 1):
+        if any(x == tree[value] for x in headers):
+            competitive_stats[tree[value]] = {}
+            root_header = tree[value]
+        else:
+            if re.match(r'[a-zA-Z]+', tree[value]):
+                competitive_stats[root_header][tree[value]] = tree[value+1]
+    return competitive_stats
