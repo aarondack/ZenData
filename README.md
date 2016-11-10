@@ -10,8 +10,8 @@ Example:
 
 Returns:
 ```javascript
-[
-    {
+{
+    "averages": {
         "Damage Done ": "8,958",
         "Deaths ": "8.82",
         "Eliminations ": "23.68",
@@ -21,7 +21,7 @@ Returns:
         "Objective Time ": "01:20",
         "Solo Kills ": "1.51"
     },
-    {
+    "stats": {
         "Assists": {
             "Healing Done": "778,122",
             "Recon Assist": "1",
@@ -88,7 +88,7 @@ Returns:
             "Offensive Assists - Average": "8"
         }
     }
-]
+}
 ```
 ####Returns hero level statistics for the given battlenet user. Currently only accepts one, but want to expand to take multiple.
 <pre><b>GET /api/{battlenet}/{hero}</b></pre>
@@ -187,3 +187,5 @@ Returns:
 * /achievements
 * quickplay
 * playtimes for heroes
+* support countries, platforms
+* ~~extract duplicate logic into outside func~~

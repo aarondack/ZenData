@@ -1,8 +1,6 @@
 from flask import Flask
 from flask_restful import Resource, Api, abort
-from lxml import html
-from competitive import build_competitive_average, build_combat_total, hero_list
-import requests
+from competitive import build_competitive_average, build_combat_total, hero_list, api_fetch
 
 app = Flask(__name__)
 api = Api(app)
@@ -10,25 +8,23 @@ api = Api(app)
 headers = ['Combat', 'Assists', 'Best', 'Deaths', 'Match Awards', 'Game', 'Miscellaneous']
 hero_headers = ['Hero Specific','Combat', 'Assists', 'Best', 'Deaths', 'Match Awards', 'Game', 'Miscellaneous']
 
-URL = 'https://playoverwatch.com/en-us/career/psn/'
 
 class OverWatcher(Resource):
     def get(self, owUser):
-        statBase = []
-        page = requests.get(URL + owUser)
-        tree = html.fromstring(page.content)
+        statBase = {}
+        tree = api_fetch(owUser)
         stats = tree.xpath('//div[@id="competitive-play"]//div[@data-group-id="stats" and @data-category-id="0x02E00000FFFFFFFF"]//text()')
 
         total = build_combat_total(stats, headers)
         averages = build_competitive_average(tree.xpath('//div[@id="competitive-play"]//ul//text()'))
 
-        statBase.extend((averages, total))
+        statBase['averages'] = averages
+        statBase['stats'] = total
         return(statBase)
 
 class HeroData(Resource):
     def get(self, owUser, hero):
-        page = requests.get(URL + owUser)
-        tree = html.fromstring(page.content)
+        tree = api_fetch(owUser)
         abort_if_no_hero_hash(hero)
 
         hash_hero = hero_list[hero]
@@ -37,12 +33,19 @@ class HeroData(Resource):
         format_stats = build_combat_total(hero_stat, hero_headers)
         return format_stats
 
+class UserAchievements(Resource):
+    def get(self, owUser):
+        tree = api_fetch(owUser)
+        achievements = tree.xpath('//div[@data-category-id="overwatch.achievementCategory.0"]//text()')
+        return foo
+
 def abort_if_no_hero_hash(hero):
     if hero not in hero_list:
         abort(404, message="That hero does not exist")
 
 api.add_resource(OverWatcher, '/api/<string:owUser>')
 api.add_resource(HeroData, '/api/<string:owUser>/<string:hero>')
+api.add_resource(UserAchievements, '/api/<string:owUser>/achievements')
 
 if __name__ == '__main__':
     app.run(debug=True)

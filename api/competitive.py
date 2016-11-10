@@ -1,4 +1,6 @@
 import re
+import requests
+from lxml import html
 
 hero_list = {
     'reaper': '0x02E0000000000002',
@@ -20,6 +22,13 @@ hero_list = {
     'mei': '0x02E00000000000DD',
     'ana': '0x02E000000000013B'
 }
+
+URL = 'https://playoverwatch.com/en-us/career/psn/'
+
+def api_fetch(owUser):
+    page = requests.get(URL + owUser)
+    tree = html.fromstring(page.content)
+    return tree
 
 def build_competitive_average(tree):
     competitive_averages = {}
