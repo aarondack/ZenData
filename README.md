@@ -6,7 +6,7 @@ This is an API currently in building phases for getting read-only information ab
 <pre><b>GET /api/{battlenet}</b></pre>
 
 Example:
-<pre><b>https://foobar.com/api/alexthecat</b></pre>
+<pre><i>https://foobar.com/api/alexthecat</i></pre>
 
 Returns:
 ```javascript
@@ -94,7 +94,7 @@ Returns:
 <pre><b>GET /api/{battlenet}/{hero}</b></pre>
 
 Example:
-<pre><b>https://foobar.com/api/alexthecat/zenyatta</b></pre>
+<pre><i>https://foobar.com/api/alexthecat/zenyatta</i></pre>
 Returns:
 ```javascript
 {
@@ -181,3 +181,9 @@ Returns:
     }
 }
 ```
+
+####TODO
+* /heroes endpoint accept array of heroes
+* /achievements
+* quickplay
+* playtimes for heroes
