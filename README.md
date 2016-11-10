@@ -6,7 +6,7 @@ This is an API currently in building phases for getting read-only information ab
 <pre><b>GET /api/{battlenet}</b></pre>
 
 Example:
-<pre>https://foobar.com/api/alexthecat</pre>
+<pre><b>https://foobar.com/api/alexthecat</b></pre>
 
 Returns:
 ```javascript
@@ -94,7 +94,7 @@ Returns:
 <pre><b>GET /api/{battlenet}/{hero}</b></pre>
 
 Example:
-<pre>https://foobar.com/api/alexthecat/zenyatta</pre>
+<pre><b>https://foobar.com/api/alexthecat/zenyatta</b></pre>
 Returns:
 ```javascript
 {
