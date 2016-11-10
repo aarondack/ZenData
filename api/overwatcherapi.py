@@ -41,8 +41,8 @@ def abort_if_no_hero_hash(hero):
     if hero not in hero_list:
         abort(404, message="That hero does not exist")
 
-api.add_resource(OverWatcher, '/<string:owUser>')
-api.add_resource(HeroData, '/<string:owUser>/<string:hero>')
+api.add_resource(OverWatcher, '/api/<string:owUser>')
+api.add_resource(HeroData, '/api/<string:owUser>/<string:hero>')
 
 if __name__ == '__main__':
     app.run(debug=True)
