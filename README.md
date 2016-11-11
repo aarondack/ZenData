@@ -214,7 +214,6 @@ Returns:
         "Winston": "2.65",
         "Zarya": "0",
         "Zenyatta": "3.1",
-        "overwatch.guid.undefined": "0"
     },
     "Games Won": {
         "Ana": "15",
