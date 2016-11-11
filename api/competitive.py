@@ -61,13 +61,15 @@ def build_combat_total(tree, headers):
     return competitive_stats
 
 def build_top_heroes(tree):
-    hero_stats = {}
+    top_heroes = {}
     for key, value in top_heroes.items():
-        top_heroes_dict(tree.xpath('//div[@id="competitive"]//div[@data-group-id="comparisons" and @data-category-id="{}"]//text()'.format(value)), key)
+        each_top_hero_stats = top_heroes_dict(tree.xpath('//div[@id="competitive"]//div[@data-group-id="comparisons" and @data-category-id="{}"]//text()'.format(value)), key)
+        top_heroes[key] = each_top_hero_stats
+    return top_heroes
 
 def top_heroes_dict(tree, key):
-    top_heroes = { key: {} }
+    top_heroes = {}
     for value in range(len(tree)):
         if re.match(r'[a-zA-Z]+', tree[value]):
-            top_heroes[key][tree[value]] = tree[value+1]
+            top_heroes[tree[value]] = tree[value+1]
     return top_heroes
