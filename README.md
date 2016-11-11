@@ -182,10 +182,197 @@ Returns:
 }
 ```
 
+####Returns Top Heroes statistics based on Time Played, Games Won, Win%, etc.
+<pre><b>GET /api/:battlenet/topheroes</b></pre>
+
+Example:
+<pre><i>https://foobar.com/api/alexthecat/topheroes</i></pre>
+Returns:
+
+```javascript
+{
+    "Eliminations Per Life": {
+        "Ana": "1.42",
+        "Bastion": "0",
+        "D.Va": "6.26",
+        "Genji": "0",
+        "Hanzo": "2.5",
+        "Junkrat": "1.61",
+        "L\u00facio": "2.52",
+        "McCree": "1.72",
+        "Mei": "1.92",
+        "Mercy": "0",
+        "Pharah": "1.82",
+        "Reaper": "2.73",
+        "Reinhardt": "1.32",
+        "Roadhog": "2.5",
+        "Soldier: 76": "0",
+        "Symmetra": "0",
+        "Torbj\u00f6rn": "0",
+        "Tracer": "1",
+        "Widowmaker": "0",
+        "Winston": "2.65",
+        "Zarya": "0",
+        "Zenyatta": "3.1",
+        "overwatch.guid.undefined": "0"
+    },
+    "Games Won": {
+        "Ana": "15",
+        "Bastion": "0",
+        "D.Va": "15",
+        "Genji": "0",
+        "Hanzo": "0",
+        "Junkrat": "1",
+        "L\u00facio": "9",
+        "McCree": "1",
+        "Mei": "1",
+        "Mercy": "0",
+        "Pharah": "1",
+        "Reaper": "3",
+        "Reinhardt": "2",
+        "Roadhog": "9",
+        "Soldier: 76": "0",
+        "Symmetra": "0",
+        "Torbj\u00f6rn": "0",
+        "Tracer": "0",
+        "Widowmaker": "0",
+        "Winston": "3",
+        "Zarya": "0",
+        "Zenyatta": "32",
+        "overwatch.guid.undefined": "0"
+    },
+    "Multikill - Best": {
+        "Ana": "3",
+        "Bastion": "0",
+        "D.Va": "4",
+        "Genji": "0",
+        "Hanzo": "0",
+        "Junkrat": "0",
+        "L\u00facio": "3",
+        "McCree": "3",
+        "Mei": "5",
+        "Mercy": "0",
+        "Pharah": "0",
+        "Reaper": "5",
+        "Reinhardt": "0",
+        "Roadhog": "4",
+        "Soldier: 76": "0",
+        "Symmetra": "0",
+        "Torbj\u00f6rn": "0",
+        "Tracer": "0",
+        "Widowmaker": "0",
+        "Winston": "0",
+        "Zarya": "0",
+        "Zenyatta": "3",
+        "overwatch.guid.undefined": "0"
+    },
+    "Objective Kills - Average": {
+        "Ana": "6.49",
+        "Bastion": "0",
+        "D.Va": "18.6",
+        "Genji": "0",
+        "Hanzo": "13.42",
+        "Junkrat": "9.62",
+        "L\u00facio": "15.16",
+        "McCree": "3.77",
+        "Mei": "11.01",
+        "Mercy": "0",
+        "Pharah": "10.92",
+        "Reaper": "11.21",
+        "Reinhardt": "6.16",
+        "Roadhog": "10.49",
+        "Soldier: 76": "0",
+        "Symmetra": "0",
+        "Torbj\u00f6rn": "0",
+        "Tracer": "0",
+        "Widowmaker": "16.86",
+        "Winston": "15.06",
+        "Zarya": "0",
+        "Zenyatta": "9.69",
+        "overwatch.guid.undefined": "0"
+    },
+    "Time Played": {
+        "Ana": "6 hours",
+        "Bastion": "--",
+        "D.Va": "6 hours",
+        "Genji": "2 seconds",
+        "Hanzo": "4 minutes",
+        "Junkrat": "42 minutes",
+        "L\u00facio": "3 hours",
+        "McCree": "29 minutes",
+        "Mei": "1 hour",
+        "Mercy": "2 minutes",
+        "Pharah": "20 minutes",
+        "Reaper": "2 hours",
+        "Reinhardt": "55 minutes",
+        "Roadhog": "4 hours",
+        "Soldier: 76": "10 seconds",
+        "Symmetra": "--",
+        "Torbj\u00f6rn": "--",
+        "Tracer": "48 seconds",
+        "Widowmaker": "58 seconds",
+        "Winston": "1 hour",
+        "Zarya": "--",
+        "Zenyatta": "10 hours",
+        "overwatch.guid.undefined": "--"
+    },
+    "Weapon Accuracy": {
+        "Ana": "14%",
+        "Bastion": "0%",
+        "D.Va": "28%",
+        "Genji": "0%",
+        "Hanzo": "35%",
+        "Junkrat": "23%",
+        "L\u00facio": "27%",
+        "McCree": "42%",
+        "Mei": "35%",
+        "Mercy": "0%",
+        "Pharah": "43%",
+        "Reaper": "28%",
+        "Reinhardt": "0%",
+        "Roadhog": "32%",
+        "Soldier: 76": "42%",
+        "Symmetra": "0%",
+        "Torbj\u00f6rn": "0%",
+        "Tracer": "15%",
+        "Widowmaker": "44%",
+        "Winston": "0%",
+        "Zarya": "0%",
+        "Zenyatta": "28%",
+        "overwatch.guid.undefined": "0%"
+    },
+    "Win Percentage": {
+        "Ana": "46%",
+        "Bastion": "0%",
+        "D.Va": "58%",
+        "Genji": "100%",
+        "Hanzo": "0%",
+        "Junkrat": "43%",
+        "L\u00facio": "60%",
+        "McCree": "80%",
+        "Mei": "8%",
+        "Mercy": "100%",
+        "Pharah": "45%",
+        "Reaper": "28%",
+        "Reinhardt": "40%",
+        "Roadhog": "44%",
+        "Soldier: 76": "0%",
+        "Symmetra": "0%",
+        "Torbj\u00f6rn": "0%",
+        "Tracer": "61%",
+        "Widowmaker": "100%",
+        "Winston": "62%",
+        "Zarya": "0%",
+        "Zenyatta": "58%",
+        "overwatch.guid.undefined": "0%"
+    }
+}
+```
+
 ####TODO
 * /heroes endpoint accept array of heroes
 * /achievements
-* Top hero stats
+* ~~Top hero stats~~
 * quickplay
 * playtimes for heroes
 * support countries, platforms
