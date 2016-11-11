@@ -3,7 +3,7 @@ This is an API currently in building phases for getting read-only information ab
 
 #API
 ####Returns a blob of information about your profile including averages as well as complete combat stats for all heroes.
-<pre><b>GET /api/{battlenet}</b></pre>
+<pre><b>GET /api/:battlenet</b></pre>
 
 Example:
 <pre><i>https://foobar.com/api/alexthecat</i></pre>
@@ -91,7 +91,7 @@ Returns:
 }
 ```
 ####Returns hero level statistics for the given battlenet user. Currently only accepts one, but want to expand to take multiple.
-<pre><b>GET /api/{battlenet}/{hero}</b></pre>
+<pre><b>GET /api/:battlenet/:hero</b></pre>
 
 Example:
 <pre><i>https://foobar.com/api/alexthecat/zenyatta</i></pre>
@@ -185,6 +185,7 @@ Returns:
 ####TODO
 * /heroes endpoint accept array of heroes
 * /achievements
+* Top hero stats
 * quickplay
 * playtimes for heroes
 * support countries, platforms

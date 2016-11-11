@@ -23,6 +23,16 @@ hero_list = {
     'ana': '0x02E000000000013B'
 }
 
+top_heroes = {
+    'Time Played': 'overwatch.guid.0x0860000000000021',
+    'Games Won': 'overwatch.guid.0x0860000000000039',
+    'Win Percentage': 'overwatch.guid.0x08600000000003D1',
+    'Weapon Accuracy': 'overwatch.guid.0x086000000000002F',
+    'Eliminations Per Life': 'overwatch.guid.0x08600000000003D2',
+    'Multikill - Best': 'overwatch.guid.0x0860000000000346',
+    'Objective Kills - Average': 'overwatch.guid.0x086000000000039C'
+}
+
 URL = 'https://playoverwatch.com/en-us/career/psn/'
 
 def api_fetch(owUser):
@@ -49,3 +59,15 @@ def build_combat_total(tree, headers):
             if re.match(r'[a-zA-Z]+', tree[value]):
                 competitive_stats[root_header][tree[value]] = tree[value+1]
     return competitive_stats
+
+def build_top_heroes(tree):
+    hero_stats = {}
+    for key, value in top_heroes.items():
+        top_heroes_dict(tree.xpath('//div[@id="competitive"]//div[@data-group-id="comparisons" and @data-category-id="{}"]//text()'.format(value)), key)
+
+def top_heroes_dict(tree, key):
+    top_heroes = { key: {} }
+    for value in range(len(tree)):
+        if re.match(r'[a-zA-Z]+', tree[value]):
+            top_heroes[key][tree[value]] = tree[value+1]
+    return top_heroes
