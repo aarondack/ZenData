@@ -238,7 +238,6 @@ Returns:
         "Winston": "3",
         "Zarya": "0",
         "Zenyatta": "32",
-        "overwatch.guid.undefined": "0"
     },
     "Multikill - Best": {
         "Ana": "3",
@@ -263,7 +262,6 @@ Returns:
         "Winston": "0",
         "Zarya": "0",
         "Zenyatta": "3",
-        "overwatch.guid.undefined": "0"
     },
     "Objective Kills - Average": {
         "Ana": "6.49",
@@ -288,7 +286,6 @@ Returns:
         "Winston": "15.06",
         "Zarya": "0",
         "Zenyatta": "9.69",
-        "overwatch.guid.undefined": "0"
     },
     "Time Played": {
         "Ana": "6 hours",
@@ -313,7 +310,6 @@ Returns:
         "Winston": "1 hour",
         "Zarya": "--",
         "Zenyatta": "10 hours",
-        "overwatch.guid.undefined": "--"
     },
     "Weapon Accuracy": {
         "Ana": "14%",
@@ -338,7 +334,6 @@ Returns:
         "Winston": "0%",
         "Zarya": "0%",
         "Zenyatta": "28%",
-        "overwatch.guid.undefined": "0%"
     },
     "Win Percentage": {
         "Ana": "46%",
@@ -363,7 +358,6 @@ Returns:
         "Winston": "62%",
         "Zarya": "0%",
         "Zenyatta": "58%",
-        "overwatch.guid.undefined": "0%"
     }
 }
 ```
