@@ -61,13 +61,17 @@ def build_combat_total(tree, headers):
     return competitive_stats
 
 def build_top_heroes(tree):
-    hero_stats = {}
+    top_heroes_stats = {}
     for key, value in top_heroes.items():
-        top_heroes_dict(tree.xpath('//div[@id="competitive"]//div[@data-group-id="comparisons" and @data-category-id="{}"]//text()'.format(value)), key)
+        each_top_hero_stats = top_heroes_processing(tree.xpath('//div[@id="competitive"]//div[@data-group-id="comparisons" and @data-category-id="{}"]//text()'.format(value)), key)
+        top_heroes_stats[key] = each_top_hero_stats
+    return top_heroes_stats
 
-def top_heroes_dict(tree, key):
-    top_heroes = { key: {} }
+def top_heroes_processing(tree, key):
+    top_heroes_processing = {}
     for value in range(len(tree)):
         if re.match(r'[a-zA-Z]+', tree[value]):
-            top_heroes[key][tree[value]] = tree[value+1]
-    return top_heroes
+            if tree[value] == 'overwatch.guid.undefined':
+                continue
+            top_heroes_processing[tree[value]] = tree[value+1]
+    return top_heroes_processing
