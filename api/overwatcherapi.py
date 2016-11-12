@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Resource, Api, abort
-from competitive import build_competitive_average, build_combat_total, hero_list, api_fetch, build_top_heroes
+from competitive import build_competitive_average, build_combat_total, hero_list, api_fetch, build_top_heroes, user_achievements
 
 app = Flask(__name__)
 api = Api(app)
@@ -36,7 +36,7 @@ class HeroData(Resource):
 class UserAchievements(Resource):
     def get(self, owUser):
         tree = api_fetch(owUser)
-        achievements = tree.xpath('//div[@data-category-id="overwatch.achievementCategory.0"]//text()')
+        achievements = user_achievements(tree)
         return achievements
 
 class TopHeroes(Resource):
@@ -44,7 +44,6 @@ class TopHeroes(Resource):
         tree = api_fetch(owUser)
         top_heroes = build_top_heroes(tree)
         return top_heroes
-
 
 def abort_if_no_hero_hash(hero):
     if hero not in hero_list:

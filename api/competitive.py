@@ -33,6 +33,15 @@ top_heroes = {
     'Objective Kills - Average': 'overwatch.guid.0x086000000000039C'
 }
 
+achievements = {
+    'General': 'overwatch.achievementCategory.0',
+    'Offense': 'overwatch.achievementCategory.1',
+    'Defense': 'overwatch.achievementCategory.2',
+    'Tank': 'overwatch.achievementCategory.3',
+    'Support': 'overwatch.achievementCategory.4',
+    'Maps': 'overwatch.achievementCategory.5',
+}
+
 URL = 'https://playoverwatch.com/en-us/career/psn/'
 
 def api_fetch(owUser):
@@ -63,11 +72,11 @@ def build_combat_total(tree, headers):
 def build_top_heroes(tree):
     top_heroes_stats = {}
     for key, value in top_heroes.items():
-        each_top_hero_stats = top_heroes_processing(tree.xpath('//div[@id="competitive"]//div[@data-group-id="comparisons" and @data-category-id="{}"]//text()'.format(value)), key)
+        each_top_hero_stats = top_heroes_processing(tree.xpath('//div[@id="competitive"]//div[@data-group-id="comparisons" and @data-category-id="{}"]//text()'.format(value)))
         top_heroes_stats[key] = each_top_hero_stats
     return top_heroes_stats
 
-def top_heroes_processing(tree, key):
+def top_heroes_processing(tree):
     top_heroes_processing = {}
     for value in range(len(tree)):
         if re.match(r'[a-zA-Z]+', tree[value]):
@@ -75,3 +84,23 @@ def top_heroes_processing(tree, key):
                 continue
             top_heroes_processing[tree[value]] = tree[value+1]
     return top_heroes_processing
+
+def user_achievements(tree):
+    user_achievements = {}
+    for key, value in achievements.items():
+        each_achievement = achievement_processing(tree.xpath('//div[@data-category-id="{}"]//div[@class="tooltip media-card achievement-card"]//text()'.format(value)),
+        tree.xpath('//div[@data-category-id="{}"]//div[@class="tooltip media-card achievement-card m-disabled"]//text()'.format(value)))
+        user_achievements[key] = each_achievement
+    return user_achievements
+
+def achievement_processing(achieved, pending):
+    processed_achievements = {}
+    for value in achieved:
+        if value == '?':
+            continue
+        processed_achievements[value] = True
+    for value in pending:
+        if value == '?':
+            continue
+        processed_achievements[value] = False
+    return processed_achievements

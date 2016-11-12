@@ -239,30 +239,6 @@ Returns:
         "Zarya": "0",
         "Zenyatta": "32",
     },
-    "Multikill - Best": {
-        "Ana": "3",
-        "Bastion": "0",
-        "D.Va": "4",
-        "Genji": "0",
-        "Hanzo": "0",
-        "Junkrat": "0",
-        "L\u00facio": "3",
-        "McCree": "3",
-        "Mei": "5",
-        "Mercy": "0",
-        "Pharah": "0",
-        "Reaper": "5",
-        "Reinhardt": "0",
-        "Roadhog": "4",
-        "Soldier: 76": "0",
-        "Symmetra": "0",
-        "Torbj\u00f6rn": "0",
-        "Tracer": "0",
-        "Widowmaker": "0",
-        "Winston": "0",
-        "Zarya": "0",
-        "Zenyatta": "3",
-    },
     "Objective Kills - Average": {
         "Ana": "6.49",
         "Bastion": "0",
@@ -311,62 +287,101 @@ Returns:
         "Zarya": "--",
         "Zenyatta": "10 hours",
     },
-    "Weapon Accuracy": {
-        "Ana": "14%",
-        "Bastion": "0%",
-        "D.Va": "28%",
-        "Genji": "0%",
-        "Hanzo": "35%",
-        "Junkrat": "23%",
-        "L\u00facio": "27%",
-        "McCree": "42%",
-        "Mei": "35%",
-        "Mercy": "0%",
-        "Pharah": "43%",
-        "Reaper": "28%",
-        "Reinhardt": "0%",
-        "Roadhog": "32%",
-        "Soldier: 76": "42%",
-        "Symmetra": "0%",
-        "Torbj\u00f6rn": "0%",
-        "Tracer": "15%",
-        "Widowmaker": "44%",
-        "Winston": "0%",
-        "Zarya": "0%",
-        "Zenyatta": "28%",
+    ...
+}
+```
+
+####Returns achievements such as Defense, Maps, Offense for the given battlenet user in Overwatch.
+<pre><b>GET /api/:battlenet/achievements</b></pre>
+
+Example:
+<pre><i>https://foobar.com/api/alexthecat/achievements</i></pre>
+Returns:
+
+```javascript
+{
+    "Defense": {
+        "Armor Up!": false,
+        "Charge!": false,
+        "Cold Snap": true,
+        "Did That Sting?": false,
+        "Ice Blocked": true,
+        "Mine Like a Steel Trap": true,
+        "Raid Wipe": true,
+        "Roadkill": true,
+        "Simple Geometry": false,
+        "Smooth as Silk": false,
+        "The Dragon Is Sated": false,
+        "Triple Threat": false
     },
-    "Win Percentage": {
-        "Ana": "46%",
-        "Bastion": "0%",
-        "D.Va": "58%",
-        "Genji": "100%",
-        "Hanzo": "0%",
-        "Junkrat": "43%",
-        "L\u00facio": "60%",
-        "McCree": "80%",
-        "Mei": "8%",
-        "Mercy": "100%",
-        "Pharah": "45%",
-        "Reaper": "28%",
-        "Reinhardt": "40%",
-        "Roadhog": "44%",
-        "Soldier: 76": "0%",
-        "Symmetra": "0%",
-        "Torbj\u00f6rn": "0%",
-        "Tracer": "61%",
-        "Widowmaker": "100%",
-        "Winston": "62%",
-        "Zarya": "0%",
-        "Zenyatta": "58%",
+    "General": {
+        "Blackjack": true,
+        "Centenary": true,
+        "Decked Out": false,
+        "Decorated": true,
+        "Level 10": true,
+        "Level 25": true,
+        "Level 50": true,
+        "Survival Expert": false,
+        "The Friend Zone": true,
+        "The Path Is Closed": false,
+        "Undying": true
+    },
+    "Maps": {
+        "Can't Touch This": true,
+        "Double Cap": true,
+        "Escort Duty": true,
+        "Lockdown": true,
+        "Shutout": true,
+        "World Traveler": true
+    },
+    "Offense": {
+        "Clearing the Area": false,
+        "Death From Above": false,
+        "Die Die Die... Die": true,
+        "It's High Noon": false,
+        "Rocket Man": false,
+        "Slice and Dice": false,
+        "Special Delivery": false,
+        "Target Rich Environment": false,
+        "Their Own Worst Enemy": false,
+        "Total Recall": false,
+        "Waste Not, Want Not": true,
+        "Whoa There!": true
+    },
+    "Support": {
+        "Enabler": true,
+        "Group Health Plan": false,
+        "Huge Rez": false,
+        "Huge Success": false,
+        "Naptime": true,
+        "Rapid Discord": false,
+        "Supersonic": true,
+        "The Car Wash": false,
+        "The Floor Is Lava": false,
+        "The Iris Embraces You": true
+    },
+    "Tank": {
+        "Anger Management": true,
+        "Game Over": true,
+        "Giving You the Hook": true,
+        "Hog Wild": false,
+        "I Am Your Shield": false,
+        "Mine Sweeper": true,
+        "Power Overwhelming": true,
+        "Shot Down": true,
+        "Storm, Earth and Fire": true,
+        "The Power of Attraction": false
     }
 }
 ```
 
+
 ####TODO
 * /heroes endpoint accept array of heroes
-* /achievements
+* ~~/achievements~~
 * ~~Top hero stats~~
 * quickplay
-* playtimes for heroes
+* ~~playtimes for heroes~~
 * support countries, platforms
 * ~~extract duplicate logic into outside func~~
