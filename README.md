@@ -5,7 +5,7 @@ This is an API currently in building phases for getting read-only information ab
 1. Clone the repository
 2. Create a new virtual environment
 3. Install the requirements with ```pip install -r requirements.txt```
-4. Start the server python api/overwatcherapi.py
+4. Start the server ```python api```
 
 #API
 ####Returns a blob of information about your profile including averages as well as complete combat stats for all heroes.
