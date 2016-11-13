@@ -8,7 +8,6 @@ api = Api(app)
 headers = ['Combat', 'Assists', 'Best', 'Deaths', 'Match Awards', 'Game', 'Miscellaneous']
 hero_headers = ['Hero Specific','Combat', 'Assists', 'Best', 'Deaths', 'Match Awards', 'Game', 'Miscellaneous']
 
-
 class OverWatcher(Resource):
     def get(self, owUser):
         statBase = {}
