@@ -7,4 +7,4 @@ This is an API currently in building phases for getting read-only information ab
 3. Install the requirements with ```pip install -r requirements.txt```
 4. Start the server ```python api```
 
-To read more about the API refer to the docs here.
+To read more about the API refer to the docs [here](https://github.com/adack123/ZenData/blob/master/api/README.md).
