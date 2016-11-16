@@ -87,95 +87,120 @@ Returns:
     }
 }
 ```
-####Returns hero level statistics for the given battlenet user. Currently only accepts one, but want to expand to take multiple.
-<pre><b>GET /api/:battlenet/:hero</b></pre>
+####Returns hero level statistics for the given battlenet user.
+<pre><b>GET /api/:battlenet/[:hero]</b></pre>
 
 Example:
-<pre><i>https://foobar.com/api/alexthecat/zenyatta</i></pre>
+<pre><i>https://foobar.com/api/alexthecat/HeroData?heroes=zenyatta&heroes=reaper</i></pre>
 Returns:
 ```javascript
 {
+  "reaper": {
     "Assists": {
-        "Healing Done": "298,207",
-        "Offensive Assists": "1,120",
-        "Self Healing": "9,813",
-        "Turrets Destroyed": "6"
+      "Healing Done": "8,430",
+      "Self Healing": "8,430",
+      "Teleporter Pad Destroyed": "1",
+      "Turret Destroyed": "1"
     },
     "Best": {
-        "Critical Hits - Most in Game": "21",
-        "Critical Hits - Most in Life": "10",
-        "Damage Done - Average": "8,321.06",
-        "Damage Done - Most in Game": "10,921",
-        "Damage Done - Most in Life": "4,733",
-        "Deaths - Average": "6.95",
-        "Eliminations - Average": "21.32",
-        "Eliminations - Most in Game": "41",
-        "Eliminations - Most in Life": "14",
-        "Final Blows - Average": "8.4",
-        "Final Blows - Most in Game": "16",
-        "Healing Done - Average": "6,027.65",
-        "Healing Done - Most in Game": "8,426",
-        "Healing Done - Most in Life": "4,466",
-        "Kill Streak - Best": "14",
-        "Objective Kills - Average": "9.82",
-        "Objective Kills - Most in Game": "24",
-        "Objective Time - Average": "00:39",
-        "Objective Time - Most in Game": "01:41",
-        "Offensive Assists - Average": "23",
-        "Offensive Assists - Most in Game": "49",
-        "Self Healing - Average": "0.29",
-        "Self Healing - Most in Game": "467",
-        "Solo Kills - Average": "1.03",
-        "Solo Kills - Most in Game": "3",
-        "Weapon Accuracy - Best in Game": "44%"
+      "Average": "Melee Final Blows - Average",
+      "Critical Hits - Most in Game": "117",
+      "Critical Hits - Most in Life": "49",
+      "Damage Done - Average": "10,234.65",
+      "Damage Done - Most in Game": "12,052",
+      "Damage Done - Most in Life": "4,442",
+      "Deaths - Average": "9.83",
+      "Eliminations - Average": "29.69",
+      "Eliminations - Most in Game": "42",
+      "Eliminations - Most in Life": "13",
+      "Final Blows - Average": "17.11",
+      "Final Blows - Most in Game": "25",
+      "Healing Done - Average": "797.19",
+      "Healing Done - Most in Game": "912",
+      "Healing Done - Most in Life": "383",
+      "Kill Streak - Best": "13",
+      "Melee Final Blows - Average": "0.09",
+      "Objective Kills - Average": "12.19",
+      "Objective Kills - Most in Game": "23",
+      "Objective Time - Average": "01:02",
+      "Objective Time - Most in Game": "01:26",
+      "Self Healing - Average": "0.95",
+      "Self Healing - Most in Game": "912",
+      "Solo Kills - Average": "4.44",
+      "Solo Kills - Most in Game": "6",
+      "Weapon Accuracy - Best in Game": "43%"
     },
     "Combat": {
-        "Critical Hit Accuracy": "6%",
-        "Critical Hits": "556",
-        "Critical Hits per Minute": "0.01",
-        "Damage Done": "411,669",
-        "Eliminations": "1,055",
-        "Eliminations per Life": "3.06",
-        "Final Blows": "416",
-        "Multikills": "4",
-        "Objective Kills": "486",
-        "Shots Fired": "28,434",
-        "Shots Hit": "8,056",
-        "Solo Kills": "51",
-        "Weapon Accuracy": "28%"
+      "Critical Hit Accuracy": "7%",
+      "Critical Hits": "1,123",
+      "Critical Hits per Minute": "0.12",
+      "Damage Done": "108,227",
+      "Eliminations": "314",
+      "Eliminations per Life": "3.01",
+      "Final Blows": "181",
+      "Melee Final Blow": "1",
+      "Multikills": "7",
+      "Objective Kills": "129",
+      "Shots Fired": "52,040",
+      "Shots Hit": "14,858",
+      "Solo Kills": "47",
+      "Weapon Accuracy": "28%"
     },
-    "Deaths": {
-        "Environmental Deaths": "3"
+    ...
+  },
+  "zenyatta": {
+    "Assists": {
+      "Healing Done": "350,832",
+      "Offensive Assists": "1,289",
+      "Self Healing": "12,361",
+      "Turrets Destroyed": "6"
     },
-    "Game": {
-        "Games Played": "49",
-        "Games Won": "29",
-        "Objective Time": "32:34",
-        "Time Played": "9 hours",
-        "Time Spent on Fire": "02:58:03",
-        "Win Percentage": "58%"
+    "Best": {
+      "Average": "Self Healing - Average",
+      "Critical Hits - Most in Game": "21",
+      "Critical Hits - Most in Life": "11",
+      "Damage Done - Average": "8,559.44",
+      "Damage Done - Most in Game": "13,798",
+      "Damage Done - Most in Life": "6,651",
+      "Deaths - Average": "6.92",
+      "Eliminations - Average": "21.33",
+      "Eliminations - Most in Game": "41",
+      "Eliminations - Most in Life": "14",
+      "Final Blows - Average": "8.56",
+      "Final Blows - Most in Game": "16",
+      "Healing Done - Average": "6,166.96",
+      "Healing Done - Most in Game": "10,852",
+      "Healing Done - Most in Life": "4,657",
+      "Kill Streak - Best": "14",
+      "Objective Kills - Average": "9.75",
+      "Objective Kills - Most in Game": "24",
+      "Objective Time - Average": "00:40",
+      "Objective Time - Most in Game": "01:48",
+      "Offensive Assists - Average": "23",
+      "Offensive Assists - Most in Game": "49",
+      "Self Healing - Average": "0.31",
+      "Self Healing - Most in Game": "798",
+      "Solo Kills - Average": "1.1",
+      "Solo Kills - Most in Game": "3",
+      "Weapon Accuracy - Best in Game": "44%"
     },
-    "Hero Specific": {
-        "Transcendence Healing - Best": "1,491"
+    "Combat": {
+      "Critical Hit Accuracy": "6%",
+      "Critical Hits": "653",
+      "Critical Hits per Minute": "0.01",
+      "Damage Done": "486,938",
+      "Eliminations": "1,214",
+      "Eliminations per Life": "3.08",
+      "Final Blows": "487",
+      "Multikills": "4",
+      "Objective Kills": "555",
+      "Shots Fired": "33,573",
+      "Shots Hit": "9,554",
+      "Solo Kills": "63",
+      "Weapon Accuracy": "28%"
     },
-    "Match Awards": {
-        "Cards": "33",
-        "Medals": "124",
-        "Medals - Bronze": "41",
-        "Medals - Gold": "32",
-        "Medals - Silver": "50"
-    },
-    "Miscellaneous": {
-        "Defensive Assists": "1,004",
-        "Defensive Assists - Average": "20",
-        "Defensive Assists - Most in Game": "41",
-        "Games Lost": "19",
-        "Games Tied": "2",
-        "Healing Done": "298,207",
-        "Healing Done - Average": "6,028",
-        "Multikill - Best": "3",
-        "Transcendence Healing": "83,748"
-    }
+    ...
+  }
 }
 ```
 
@@ -371,267 +396,6 @@ Returns:
         "The Power of Attraction": false
     }
 }
-```
-Example:
-<pre><i> http://foobar.com/api/alexthecat/HeroData?heroes=zenyatta&heroes=reaper&heroes=roadhog</i></pre>
-Returns:
-```javascript
-[
-    {
-        "Assists": {
-            "Healing Done": "350,832", 
-            "Offensive Assists": "1,289", 
-            "Self Healing": "12,361", 
-            "Turrets Destroyed": "6"
-        }, 
-        "Best": {
-            "Average": "Self Healing - Average", 
-            "Critical Hits - Most in Game": "21", 
-            "Critical Hits - Most in Life": "11", 
-            "Damage Done - Average": "8,559.44", 
-            "Damage Done - Most in Game": "13,798", 
-            "Damage Done - Most in Life": "6,651", 
-            "Deaths - Average": "6.92", 
-            "Eliminations - Average": "21.33", 
-            "Eliminations - Most in Game": "41", 
-            "Eliminations - Most in Life": "14", 
-            "Final Blows - Average": "8.56", 
-            "Final Blows - Most in Game": "16", 
-            "Healing Done - Average": "6,166.96", 
-            "Healing Done - Most in Game": "10,852", 
-            "Healing Done - Most in Life": "4,657", 
-            "Kill Streak - Best": "14", 
-            "Objective Kills - Average": "9.75", 
-            "Objective Kills - Most in Game": "24", 
-            "Objective Time - Average": "00:40", 
-            "Objective Time - Most in Game": "01:48", 
-            "Offensive Assists - Average": "23", 
-            "Offensive Assists - Most in Game": "49", 
-            "Self Healing - Average": "0.31", 
-            "Self Healing - Most in Game": "798", 
-            "Solo Kills - Average": "1.1", 
-            "Solo Kills - Most in Game": "3", 
-            "Weapon Accuracy - Best in Game": "44%"
-        }, 
-        "Combat": {
-            "Critical Hit Accuracy": "6%", 
-            "Critical Hits": "653", 
-            "Critical Hits per Minute": "0.01", 
-            "Damage Done": "486,938", 
-            "Eliminations": "1,214", 
-            "Eliminations per Life": "3.08", 
-            "Final Blows": "487", 
-            "Multikills": "4", 
-            "Objective Kills": "555", 
-            "Shots Fired": "33,573", 
-            "Shots Hit": "9,554", 
-            "Solo Kills": "63", 
-            "Weapon Accuracy": "28%"
-        }, 
-        "Deaths": {
-            "Environmental Deaths": "5"
-        }, 
-        "Game": {
-            "Games Played": "57", 
-            "Games Won": "34", 
-            "Objective Time": "38:41", 
-            "Time Played": "10 hours", 
-            "Time Spent on Fire": "03:23:35", 
-            "Win Percentage": "58%"
-        }, 
-        "Hero Specific": {
-            "Transcendence Healing - Best": "1,888"
-        }, 
-        "Match Awards": {
-            "Cards": "37", 
-            "Medals": "147", 
-            "Medals - Bronze": "51", 
-            "Medals - Gold": "37", 
-            "Medals - Silver": "59"
-        }, 
-        "Miscellaneous": {
-            "Defensive Assists": "1,149", 
-            "Defensive Assists - Average": "20", 
-            "Defensive Assists - Most in Game": "41", 
-            "Games Lost": "21", 
-            "Games Tied": "2", 
-            "Healing Done": "350,832", 
-            "Healing Done - Average": "6,167", 
-            "Healing Done - Most in Game": "6,353", 
-            "Multikill - Best": "3", 
-            "Transcendence Healing": "103,203"
-        }
-    }, 
-    {
-        "Assists": {
-            "Healing Done": "8,430", 
-            "Self Healing": "8,430", 
-            "Teleporter Pad Destroyed": "1", 
-            "Turret Destroyed": "1"
-        }, 
-        "Best": {
-            "Average": "Melee Final Blows - Average", 
-            "Critical Hits - Most in Game": "117", 
-            "Critical Hits - Most in Life": "49", 
-            "Damage Done - Average": "10,234.65", 
-            "Damage Done - Most in Game": "12,052", 
-            "Damage Done - Most in Life": "4,442", 
-            "Deaths - Average": "9.83", 
-            "Eliminations - Average": "29.69", 
-            "Eliminations - Most in Game": "42", 
-            "Eliminations - Most in Life": "13", 
-            "Final Blows - Average": "17.11", 
-            "Final Blows - Most in Game": "25", 
-            "Healing Done - Average": "797.19", 
-            "Healing Done - Most in Game": "912", 
-            "Healing Done - Most in Life": "383", 
-            "Kill Streak - Best": "13", 
-            "Melee Final Blows - Average": "0.09", 
-            "Objective Kills - Average": "12.19", 
-            "Objective Kills - Most in Game": "23", 
-            "Objective Time - Average": "01:02", 
-            "Objective Time - Most in Game": "01:26", 
-            "Self Healing - Average": "0.95", 
-            "Self Healing - Most in Game": "912", 
-            "Solo Kills - Average": "4.44", 
-            "Solo Kills - Most in Game": "6", 
-            "Weapon Accuracy - Best in Game": "43%"
-        }, 
-        "Combat": {
-            "Critical Hit Accuracy": "7%", 
-            "Critical Hits": "1,123", 
-            "Critical Hits per Minute": "0.12", 
-            "Damage Done": "108,227", 
-            "Eliminations": "314", 
-            "Eliminations per Life": "3.01", 
-            "Final Blows": "181", 
-            "Melee Final Blow": "1", 
-            "Multikills": "7", 
-            "Objective Kills": "129", 
-            "Shots Fired": "52,040", 
-            "Shots Hit": "14,858", 
-            "Solo Kills": "47", 
-            "Weapon Accuracy": "28%"
-        }, 
-        "Deaths": {}, 
-        "Game": {
-            "Games Played": "11", 
-            "Games Won": "4", 
-            "Objective Time": "11:03", 
-            "Time Played": "2 hours", 
-            "Time Spent on Fire": "17:43", 
-            "Win Percentage": "33%"
-        }, 
-        "Hero Specific": {
-            "Death Blossom Kills": "62", 
-            "Death Blossom Kills - Average": "5.86", 
-            "Death Blossom Kills - Most in Game": "11", 
-            "Melee Final Blow - Most in Game": "1", 
-            "Souls Consumed": "229", 
-            "Souls Consumed - Average": "21.65", 
-            "Souls Consumed - Most in Game": "28"
-        }, 
-        "Match Awards": {
-            "Card": "1", 
-            "Medals": "28", 
-            "Medals - Bronze": "13", 
-            "Medals - Gold": "6", 
-            "Medals - Silver": "10"
-        }, 
-        "Miscellaneous": {
-            "Games Lost": "4", 
-            "Games Tied": "3", 
-            "Multikill - Best": "5"
-        }
-    }, 
-    {
-        "Assists": {
-            "Healing Done": "110,884", 
-            "Self Healing": "110,884", 
-            "Teleporter Pad Destroyed": "1"
-        }, 
-        "Best": {
-            "Average": "Melee Final Blows - Average", 
-            "Critical Hits - Most in Game": "162", 
-            "Critical Hits - Most in Life": "42", 
-            "Damage Done - Average": "10,639.61", 
-            "Damage Done - Most in Game": "17,704", 
-            "Damage Done - Most in Life": "4,959", 
-            "Deaths - Average": "10.69", 
-            "Eliminations - Average": "26.86", 
-            "Eliminations - Most in Game": "44", 
-            "Eliminations - Most in Life": "23", 
-            "Final Blows - Average": "12.76", 
-            "Final Blows - Most in Game": "23", 
-            "Healing Done - Average": "5,091.19", 
-            "Healing Done - Most in Game": "8,259", 
-            "Healing Done - Most in Life": "2,825", 
-            "Kill Streak - Best": "23", 
-            "Melee Final Blows - Average": "0.18", 
-            "Objective Kills - Average": "10.6", 
-            "Objective Kills - Most in Game": "34", 
-            "Objective Time - Average": "01:09", 
-            "Objective Time - Most in Game": "03:56", 
-            "Self Healing - Average": "6.3", 
-            "Self Healing - Most in Game": "8,259", 
-            "Solo Kills - Average": "2.52", 
-            "Solo Kills - Most in Game": "7", 
-            "Weapon Accuracy - Best in Game": "57%"
-        }, 
-        "Combat": {
-            "Critical Hit Accuracy": "13%", 
-            "Critical Hits": "1,908", 
-            "Critical Hits per Minute": "0.1", 
-            "Damage Done": "231,725", 
-            "Eliminations": "585", 
-            "Eliminations per Life": "2.51", 
-            "Final Blows": "278", 
-            "Melee Final Blows": "4", 
-            "Multikills": "8", 
-            "Objective Kills": "231", 
-            "Shots Fired": "44,185", 
-            "Shots Hit": "14,417", 
-            "Solo Kills": "55", 
-            "Weapon Accuracy": "32%"
-        }, 
-        "Deaths": {
-            "Environmental Deaths": "11"
-        }, 
-        "Game": {
-            "Games Played": "22", 
-            "Games Won": "9", 
-            "Objective Time": "25:08", 
-            "Time Played": "4 hours", 
-            "Time Spent on Fire": "30:35", 
-            "Win Percentage": "43%"
-        }, 
-        "Hero Specific": {
-            "Enemies Hooked": "482", 
-            "Enemies Hooked - Average": "22.13", 
-            "Enemies Hooked - Most in Game": "33", 
-            "Hook Accuracy": "54%", 
-            "Hook Accuracy - Best in Game": "100%", 
-            "Hooks Attempted": "878", 
-            "Melee Final Blow - Most in Game": "1", 
-            "Whole Hog Kills": "109", 
-            "Whole Hog Kills - Average": "5", 
-            "Whole Hog Kills - Most in Game": "11"
-        }, 
-        "Match Awards": {
-            "Cards": "6", 
-            "Medals": "68", 
-            "Medals - Bronze": "24", 
-            "Medals - Gold": "13", 
-            "Medals - Silver": "31"
-        }, 
-        "Miscellaneous": {
-            "Games Lost": "10", 
-            "Games Tied": "2", 
-            "Multikill - Best": "4"
-        }
-    }
-]
-```
 
 ####TODO
 * ~~/heroes endpoint accept array of heroes~~

@@ -1,15 +1,4 @@
-<<<<<<< Updated upstream
-from flask import Flask, render_template, jsonify, abort
-=======
-from flask import Flask
-from flask_restful import Resource, Api, abort, reqparse
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+from flask import Flask, render_template, jsonify, abort, request
 from competitive import build_competitive_average, build_combat_total, hero_list, api_fetch, build_top_heroes, user_achievements
 
 app = Flask(__name__, template_folder="../client")
@@ -30,46 +19,20 @@ def get_combat_averages(owUser):
     total = build_combat_total(stats, headers)
     averages = build_competitive_average(tree.xpath('//div[@id="competitive"]//ul//text()'))
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     statBase['averages'] = averages
     statBase['stats'] = total
     return jsonify(statBase)
 
-@app.route('/api/<string:owUser>/<string:hero>', methods=['GET'])
-def get_hero_data(owUser, hero):
+@app.route('/api/<string:owUser>/HeroData', methods=['GET'])
+def get_hero_data(owUser):
     tree = api_fetch(owUser)
-    abort_if_no_hero_hash(hero)
-
-    hash_hero = hero_list[hero]
-    hero_stat = tree.xpath('//div[@id="competitive"]//div[@data-group-id="stats" and @data-category-id="{}"]//text()'.format(hash_hero))
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-class HeroData(Resource):
-    def get(self, owUser, heroes):
-        parser = reqparse.RequestParser()
-        parser.add_argument('heroes', action='append')
-        args = parser.parse_args()
-        tree = api_fetch(owUser)
-        hasher = []
-        format_stats = []
-        hasher = args['heroes']
-        print hasher
-        # getting a list, need to make hashable type
-        for hero in hasher:
-            abort_if_no_hero_hash(hero)
-            hash_hero = hero_list[hero]
-            hero_stat = tree.xpath('//div[@id="competitive"]//div[@data-group-id="stats" and @data-category-id="{}"]//text()'.format(hash_hero))
-            format_stats.append(build_combat_total(hero_stat, hero_headers))
-        return format_stats
->>>>>>> Stashed changes
-
-    format_stats = build_combat_total(hero_stat, hero_headers)
-    return jsonify(format_stats)
+    heroes = request.args.getlist('heroes')
+    hero_data = {}
+    for hero in heroes:
+        abort_if_no_hero_hash(hero)
+        hash_hero = hero_list[hero]
+        hero_data[hero] = build_combat_total(tree.xpath('//div[@id="competitive"]//div[@data-group-id="stats" and @data-category-id="{}"]//text()'.format(hash_hero)), hero_headers)
+    return jsonify(hero_data)
 
 @app.route('/api/<string:owUser>/achievements', methods=['GET'])
 def get_user_achievements(owUser):
@@ -85,16 +48,7 @@ def get_top_heroes(owUser):
 
 def abort_if_no_hero_hash(hero):
     if hero not in hero_list:
-<<<<<<< Updated upstream
         abort(404)
-=======
-        abort(404, message="That hero does not exist")
-
-api.add_resource(OverWatcher, '/api/<string:owUser>')
-api.add_resource(HeroData, '/api/<string:owUser>/<string:heroes>')
-api.add_resource(UserAchievements, '/api/<string:owUser>/achievements')
-api.add_resource(TopHeroes, '/api/<string:owUser>/topheroes')
 
 if __name__ == '__main__':
     app.run(debug=True)
->>>>>>> Stashed changes
