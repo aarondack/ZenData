@@ -1,15 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import App from './containers/App';
+import configureStore from './store/configureStore';
+import { browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import Root from './containers/Root';
 
-const Root = () => (
-  <MuiThemeProvider>
-    <App />
-  </MuiThemeProvider>
-);
+const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, store);
 
 render(
-  <Root />,
+  <Root
+    store={store}
+    history={history}
+    />,
   document.getElementById('app')
 );

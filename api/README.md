@@ -406,5 +406,5 @@ Returns:
 * ~~/achievements~~
 * ~~Top hero stats~~
 * ~~playtimes for heroes~~
-* support countries, platforms
+* support countries, ~~platforms~~
 * ~~extract duplicate logic into outside func~~
