@@ -1,5 +1,6 @@
 import re
 import requests
+from flask import request
 from lxml import html
 
 hero_list = {
@@ -42,10 +43,17 @@ achievements = {
     'Maps': 'overwatch.achievementCategory.5',
 }
 
-URL = 'https://playoverwatch.com/en-us/career/psn/'
+PSN_URL = 'https://playoverwatch.com/en-us/career/psn/'
 
 def api_fetch(owUser):
-    page = requests.get(URL + owUser)
+    platform = request.args.get('platform')
+    if platform:
+        platform_url = 'https://playoverwatch.com/en-us/career/' + platform + '/'
+        page = requests.get(platform_url + owUser)
+        tree = html.fromstring(page.content)
+        return tree
+
+    page = requests.get(PSN_URL + owUser)
     tree = html.fromstring(page.content)
     return tree
 
@@ -104,3 +112,14 @@ def achievement_processing(achieved, pending):
             continue
         processed_achievements[value] = False
     return processed_achievements
+
+def build_about_user(tree):
+    user_info = {}
+    platform = request.args.get('platform')
+    if platform:
+        user_info['platform'] = platform
+        user_info['avatar'] = ''.join(tree)
+    else:
+        user_info['platform'] = 'psn'
+        user_info['avatar'] = ''.join(tree)
+    return user_info

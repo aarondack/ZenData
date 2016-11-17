@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, abort, request
-from competitive import build_competitive_average, build_combat_total, hero_list, api_fetch, build_top_heroes, user_achievements
+from competitive import build_competitive_average, build_combat_total, hero_list, api_fetch, build_top_heroes, user_achievements, build_about_user
 
 app = Flask(__name__, template_folder="../client")
 
@@ -18,7 +18,9 @@ def get_combat_averages(owUser):
 
     total = build_combat_total(stats, headers)
     averages = build_competitive_average(tree.xpath('//div[@id="competitive"]//ul//text()'))
+    about = build_about_user(tree.xpath('//img[@class="player-portrait"]/@src'))
 
+    statBase['about'] = about
     statBase['averages'] = averages
     statBase['stats'] = total
     return jsonify(statBase)

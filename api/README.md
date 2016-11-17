@@ -8,6 +8,10 @@ Example:
 Returns:
 ```javascript
 {
+    "about": {
+        "avatar": "foobar.com",
+        "platform": "PSN"
+   },
     "averages": {
         "Damage Done ": "8,958",
         "Deaths ": "8.82",
