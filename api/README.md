@@ -396,7 +396,7 @@ Returns:
         "The Power of Attraction": false
     }
 }
-
+```
 ####TODO
 * ~~/heroes endpoint accept array of heroes~~
 * ~~/achievements~~
