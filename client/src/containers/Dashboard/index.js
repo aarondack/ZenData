@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { requestProfileBlob } from '../../actions';
 import Header from '../../components/Header';
 import LeftNav from '../../components/LeftNav';
-
+import CircularProgress from 'material-ui/CircularProgress';
 
 class Dashboard extends React.Component {
   componentDidMount() {
@@ -15,6 +15,12 @@ class Dashboard extends React.Component {
     const { profile, fetching, profileName } = this.props;
     return(
     <div>
+      {profile.length === 0 &&
+      <div className="loading">
+        <h3>Loading...</h3>
+        <CircularProgress size={80} thickness={5} />
+      </div>
+    }
       {profile.length > 0 &&
       <div>
         <Header
