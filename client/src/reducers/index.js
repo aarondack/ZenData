@@ -6,7 +6,7 @@ const initialState = {
   fetching: false
 };
 
-export const dashboardReducer = (state = initialState, action) => {
+export const dashboard = (state = initialState, action) => {
   switch (action.type) {
     case 'REQUEST_PROFILE_BLOB':
       return {
@@ -16,7 +16,7 @@ export const dashboardReducer = (state = initialState, action) => {
     case 'RECEIVE_PROFILE_BLOB':
       return {
         ...state,
-        profile: action.profile,
+        profile: [action.profile],
         fetching: false
       }
     default:
@@ -25,7 +25,7 @@ export const dashboardReducer = (state = initialState, action) => {
 }
 
 const rootReducer = combineReducers({
-  dashboardReducer,
+  dashboard,
   routing: routerReducer
 });
 

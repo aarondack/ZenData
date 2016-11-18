@@ -1,12 +1,10 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
 import './Dashboard.css';
 import { connect } from 'react-redux';
 import { requestProfileBlob } from '../../actions';
+import Header from '../../components/Header';
+import LeftNav from '../../components/LeftNav';
 
-const Header = () => (
-  <AppBar title="Overwatcher" style={{backgroundColor: '#FFF' }}/>
-);
 
 class Dashboard extends React.Component {
   componentDidMount() {
@@ -14,15 +12,28 @@ class Dashboard extends React.Component {
     requestProfile(profileName);
   }
   render() {
+    const { profile, fetching, profileName } = this.props;
     return(
-      <Header />
+    <div>
+      {profile.length > 0 &&
+      <div>
+        <Header
+          profile={profile}
+          name={profileName}
+        />
+        <LeftNav/>
+        </div>
+      }
+    </div>
     );
   }
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    profileName: ownProps.params.battlenet
+    profile: state.dashboard.profile,
+    fetching: state.dashboard.fetching,
+    profileName: ownProps.params.battlenet,
   }
 }
 
