@@ -10,8 +10,8 @@ const Header = () => (
 
 class Dashboard extends React.Component {
   componentDidMount() {
-    const { requestProfile } = this.props;
-    requestProfile();
+    const { requestProfile, profileName } = this.props;
+    requestProfile(profileName);
   }
   render() {
     return(
@@ -20,12 +20,18 @@ class Dashboard extends React.Component {
   }
 };
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    profileName: ownProps.params.battlenet
+  }
+}
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    requestProfile: () => {
-      dispatch(requestProfileBlob())
+    requestProfile: (profileName) => {
+      dispatch(requestProfileBlob(profileName))
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

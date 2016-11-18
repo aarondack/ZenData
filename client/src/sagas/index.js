@@ -17,13 +17,13 @@ export function fetchOverwatcher(type, data) {
 
 export function* watchFetchProfile() {
   while(true) {
-    const { profile } = yield take(actions.REQUEST_PROFILE_BLOB);
-    yield call(fetchProfile, profile);
+    const { profileName } = yield take(actions.REQUEST_PROFILE_BLOB);
+    yield call(fetchProfile, profileName);
   }
 }
 
-export function* fetchProfile(profile) {
-  const profileData = yield call(fetchOverwatcher, 'apiFetchProfileBlob', { profile });
+export function* fetchProfile(profileName) {
+  const profileData = yield call(fetchOverwatcher, 'apiFetchProfileBlob', { profileName });
   yield put(actions.receiveProfileBlob(profileData));
 }
 

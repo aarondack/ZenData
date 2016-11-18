@@ -1,9 +1,9 @@
 const API = '/api/';
 
 export const apiRequestMap = {
-  apiFetchProfileBlob({ profile }) {
+  apiFetchProfileBlob({ profileName }) {
     return {
-      url: `${API}${profile}`
+      url: `${API}${profileName}`
     }
   },
   apiFetchTopHeroe({ profile }) {

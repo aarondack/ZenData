@@ -10,8 +10,17 @@ new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     historyApiFallback: true,
     inline: true,
-    hot: true
+    hot: true,
+    proxy: {
+        "/api/**": {
+            target: "http://localhost:5000/api/",
+            pathRewrite: {
+                "^/api": ""
+            }
+        }
+    }
 }).listen(PORT, ADDRESS, (err, result) => {
-    if (err) throw err;
+    if (err)
+        throw err;
     console.log(green(`Listening at ${ADDRESS}:${PORT}`));
 });
