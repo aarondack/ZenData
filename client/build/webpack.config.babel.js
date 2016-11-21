@@ -4,33 +4,31 @@ import autoprefixer from 'autoprefixer';
 
 const SRC_DIR = path.join(__dirname, '../src');
 
-export default { 
-    devtool: 'source-map',
-    entry: [
-        'babel-polyfill',
-        'webpack-dev-server/client?http://0.0.0.0:3000',
-        'webpack/hot/dev-server',
-        './src/index'
+export default {
+    devtool : 'source-map',
+    entry : [
+        'babel-polyfill', 'webpack-dev-server/client?http://0.0.0.0:3000', 'webpack/hot/dev-server', './src/index'
     ],
-    output: {
+    output : {
         path: path.join(__dirname, '../dist'),
         filename: 'bundle.js',
         publicPath: '/static/'
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ],
-    module: {
-        loaders: [{
-            test: /\.jsx?$/,
-            loaders: [
-                'babel'
-            ],
-            include: SRC_DIR,
-            exclude: /node_modules/
-        }, {
-          test: /\.css$/,
-          loader: 'style-loader!css-loader'
-        }]
+    plugins : [new webpack.HotModuleReplacementPlugin()],
+    module : {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                loaders: ['babel'],
+                include: SRC_DIR,
+                exclude: /node_modules/
+            }, {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
+            }, {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loader: "file-loader?name=icons/[name].[ext]"
+            }
+        ]
     }
 };
