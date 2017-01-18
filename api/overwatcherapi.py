@@ -10,10 +10,10 @@ hero_headers = ['Hero Specific','Combat', 'Assists', 'Best', 'Deaths', 'Match Aw
 def index():
     return render_template('index.html')
 
-@app.route('/api/<string:owUser>', methods=['GET'])
-def get_combat_averages(owUser):
+@app.route('/api/<string:owUser>/<string:owCtry>', methods=['GET'])
+def get_combat_averages(owUser, owCtry):
     statBase = {}
-    tree = api_fetch(owUser)
+    tree = api_fetch(owUser,owCtry)
     stats = tree.xpath('//div[@id="competitive"]//div[@data-group-id="stats" and @data-category-id="0x02E00000FFFFFFFF"]//text()')
 
     total = build_combat_total(stats, headers)
@@ -25,9 +25,9 @@ def get_combat_averages(owUser):
     statBase['stats'] = total
     return jsonify(statBase)
 
-@app.route('/api/<string:owUser>/HeroData', methods=['GET'])
-def get_hero_data(owUser):
-    tree = api_fetch(owUser)
+@app.route('/api/<string:owUser>/<string:owCtry>/HeroData', methods=['GET'])
+def get_hero_data(owUser, owCtry):
+    tree = api_fetch(owUser, owCtry)
     heroes = request.args.getlist('heroes')
     hero_data = {}
     for hero in heroes:
@@ -36,15 +36,15 @@ def get_hero_data(owUser):
         hero_data[hero] = build_combat_total(tree.xpath('//div[@id="competitive"]//div[@data-group-id="stats" and @data-category-id="{}"]//text()'.format(hash_hero)), hero_headers)
     return jsonify(hero_data)
 
-@app.route('/api/<string:owUser>/achievements', methods=['GET'])
-def get_user_achievements(owUser):
-    tree = api_fetch(owUser)
+@app.route('/api/<string:owUser>/<string:owCtry>/achievements', methods=['GET'])
+def get_user_achievements(owUser, owCtry):
+    tree = api_fetch(owUser, owCtry)
     achievements = user_achievements(tree)
     return jsonify(achievements)
 
-@app.route('/api/<string:owUser>/topheroes', methods=['GET'])
-def get_top_heroes(owUser):
-    tree = api_fetch(owUser)
+@app.route('/api/<string:owUser>/<string:owCtry>/topheroes', methods=['GET'])
+def get_top_heroes(owUser, owCtry):
+    tree = api_fetch(owUser, owCtry)
     top_heroes = build_top_heroes(tree)
     return jsonify(top_heroes)
 

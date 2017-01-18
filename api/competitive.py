@@ -42,18 +42,19 @@ achievements = {
     'Support': 'overwatch.achievementCategory.4',
     'Maps': 'overwatch.achievementCategory.5',
 }
-
+# Adding some CTRY_URL into the PSN_URL so we can make this more dynamic later if we'd like
+CTRY_URL = '/en-us/'
 PSN_URL = 'https://playoverwatch.com/en-us/career/psn/'
 
-def api_fetch(owUser):
+def api_fetch(owUser, owCtry):
     platform = request.args.get('platform')
     if platform:
-        platform_url = 'https://playoverwatch.com/en-us/career/' + platform + '/'
+        platform_url = 'https://playoverwatch.com/en-us/career/'+ platform + '/'
         page = requests.get(platform_url + owUser)
         tree = html.fromstring(page.content)
         return tree
-
-    page = requests.get(PSN_URL + owUser)
+    countrl = 'https://playoverwatch.com/{}/career/psn/'.format(owCtry) 
+    page = requests.get(countrl + owUser)
     tree = html.fromstring(page.content)
     return tree
 
