@@ -1,7 +1,11 @@
 from flask import Flask, render_template, jsonify, abort, request
 from competitive import build_competitive_average, build_combat_total, hero_list, api_fetch, build_top_heroes, user_achievements, build_about_user
+from mongoengine import *
+from models import DBHero, DBAchievements, DBTop_Heros
 
 app = Flask(__name__, template_folder="../client")
+#connect to MongoDB droplet
+mongoWatcher = connect('overwatcher', host='104.131.112.36', port=27017)
 
 headers = ['Combat', 'Assists', 'Best', 'Deaths', 'Match Awards', 'Game', 'Miscellaneous']
 hero_headers = ['Hero Specific','Combat', 'Assists', 'Best', 'Deaths', 'Match Awards', 'Game', 'Miscellaneous']
@@ -23,6 +27,9 @@ def get_combat_averages(owUser, owCtry):
     statBase['about'] = about
     statBase['averages'] = averages
     statBase['stats'] = total
+    #save statBase to overwatchers db
+    dbhero = DBHero(tree = statBase)
+    dbhero.save()
     return jsonify(statBase)
 
 @app.route('/api/<string:owUser>/<string:owCtry>/HeroData', methods=['GET'])
