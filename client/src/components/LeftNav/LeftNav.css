@@ -1,7 +1,7 @@
 .container {
   z-index: 1000;
   position: absolute;
-  top: 66.531;
+  top: 60.531;
   bottom: 0;
   background-color: rgb(59, 68, 77);
 }
@@ -30,4 +30,12 @@
   color: inherit;
   font-size: 13px;
   font-weight: 100;
+}
+
+.link {
+  text-decoration: none;
+  display: table-cell;
+  text-align: -webkit-center;
+  vertical-align: middle;
+  color: #606A72;
 }

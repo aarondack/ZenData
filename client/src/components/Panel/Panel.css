@@ -1,0 +1,9 @@
+.panel-container {
+  background-color: white;
+  border: 1px solid #E8EAEE;
+  height: 260px;
+  width: 250px;
+  margin-right: 1em;
+  margin-left: 1em;
+  margin-top: 1em;
+}

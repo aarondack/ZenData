@@ -54,7 +54,7 @@ input[type=text] {
 .battlnet-input {
  width: 100%;
  border: 0.5px solid #FAFAFA;
- height: 50px;
+ height: 45px;
  outline: 0;
 }
 
@@ -64,5 +64,14 @@ input[type=text] {
   position: relative;
   color: #E0E1E1;
   left: 15;
-  top: 35;
+  top: 31;
+}
+
+.search-button {
+  outline: 0;
+  height: 5%;
+  width: 15%;
+  border: 1px solid #17D4E8;
+  margin-top: 2em;
+  background-color: #1BADC3;
 }
