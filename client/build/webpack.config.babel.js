@@ -24,7 +24,7 @@ export default {
                 exclude: /node_modules/
             }, {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                loader: 'style-loader!css-loader!sass-loader'
             }, {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loader: "file-loader?name=icons/[name].[ext]"

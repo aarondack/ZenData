@@ -23,15 +23,13 @@ class BattleNetSelect extends React.Component {
           <h2 className="zenData">ZenData</h2>
         </div>
         <div className="input-holder">
-        <div className="icon" />        
-        <Paper>
+        <div className="icon" />   
           <input 
             type="text" 
             placeholder={'Input your Battlenet ID'} 
             className="battlnet-input" 
             onChange={this.onChange}
           />                          
-        </Paper>
           <Link to={`/profile/${username}`}>
             <button className="search-button">Search</button>
           </Link>
