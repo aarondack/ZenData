@@ -87,5 +87,9 @@ input[type=text] {
   width: 100px;
   border: 1px solid #17D4E8;
   background-color: #1BADC3;
+
+  &:hover {
+    border: none;
+  }
 }
 
