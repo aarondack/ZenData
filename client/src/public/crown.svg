@@ -1,0 +1,13 @@
+
+<svg width="214px" height="160px" viewBox="-402 -1661 214 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Crown" stroke="none" fill="none" transform="translate(-400.000000, -1658.000000)" stroke-width="1">
+        <polygon id="Triangle" stroke="#979797" transform="translate(49.261763, 107.791984) scale(-1, 1) rotate(50.000000) translate(-49.261763, -107.791984) " points="20.5943164 68.3832497 77.9292087 147.200718 34.9292087 147.200718"></polygon>
+        <polygon id="Triangle" stroke="#979797" transform="translate(160.261763, 107.791984) rotate(50.000000) translate(-160.261763, -107.791984) " points="131.594316 68.3832497 188.929209 147.200718 145.929209 147.200718"></polygon>
+        <polygon id="Triangle-2" stroke="#979797" points="105 0 148 155 62 155"></polygon>
+        <polygon id="Path-2" stroke="#979797" points="89 123 121 123 105 154"></polygon>
+        <polygon id="Triangle-3" stroke="#979797" transform="translate(105.000000, 62.000000) scale(-1, 1) translate(-105.000000, -62.000000) " points="105 1 121 123 89 123"></polygon>
+    </g>
+</svg>
