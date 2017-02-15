@@ -4,13 +4,14 @@ import Avatar from 'material-ui/Avatar';
 import './Header.css';
 
 const Header = ({ profile, name }) => (
-  <div>
-    <AppBar style={{backgroundColor: '#FFF' }}>
-    <h4 className="profileName">{name}</h4>
-    <div className="avatar">
-      <Avatar src={profile[0].about.avatar} />
+  <div className="header">
+      <div className="logo" />
+      <div className="profiles">
+        <h4 className="profileName">{name}</h4>
+        <div className="avatar">
+        <Avatar src={profile[0].about.avatar} />
+      </div>
     </div>
-    </AppBar>
   </div>
 );
 

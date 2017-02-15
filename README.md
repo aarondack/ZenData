@@ -11,6 +11,7 @@ This is an API currently in building phases for getting read-only information ab
 1. Navigate into the client directory
 2. ```npm install```
 3. ```npm run dev```
+4. Server should be running at ```localhost:3000```
 
 
 To read more about the API refer to the docs [here](https://github.com/adack123/ZenData/blob/master/api/README.md).

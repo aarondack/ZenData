@@ -3,7 +3,7 @@ const API = '/api/';
 export const apiRequestMap = {
   apiFetchProfileBlob({ profileName }) {
     return {
-      url: `${API}${profileName}`
+      url: `${API}${profileName}/en-us`
     }
   },
   apiFetchTopHeroe({ profile }) {
