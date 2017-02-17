@@ -1,19 +1,24 @@
 
-<svg width="138px" height="80px" viewBox="-741 -1333 138 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="138px" height="116px" viewBox="-741 -1333 138 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
     <desc>Created with Sketch.</desc>
     <defs>
-        <polygon id="path-1" points="3.4219427 33.4536886 88.701903 33.1737284 75.442758 46.4328733 -9.55724202 46.4328733"></polygon>
-        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="98.259145" height="13.259145" fill="white">
+        <path d="M-2.57587186,38.1138352 C-0.626596585,36.1645599 3.19080047,34.5770157 5.9541779,34.567944 L81.2329888,34.3208159 C83.99473,34.3117496 84.6473708,35.8905925 82.6977736,37.8401897 L76.5102084,44.0277549 C74.5574456,45.9805178 70.7445657,47.5635448 67.9746175,47.5635448 L-5.39117862,47.5635448 C-9.05525814,47.5635448 -9.92582592,45.4637893 -7.33979793,42.8777613 L-2.57587186,38.1138352 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="95.0611231" height="13.259145" fill="white">
             <use xlink:href="#path-1"></use>
         </mask>
-        <polygon id="path-3" points="62.4219427 33.4536886 147.701903 33.1737284 134.442758 46.4328733 49.442758 46.4328733"></polygon>
+        <path d="M56.8924676,36.9831637 C58.8417429,35.0338885 62.6591399,33.4463443 65.4225174,33.4372726 L140.701328,33.1901444 C143.463069,33.1810781 144.11571,34.7599211 142.166113,36.7095183 L135.978548,42.8970835 C134.025785,44.8498463 130.212905,46.4328733 127.442957,46.4328733 L54.0771608,46.4328733 C50.4130813,46.4328733 49.5425135,44.3331178 52.1285415,41.7470898 L56.8924676,36.9831637 Z" id="path-3"></path>
         <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="98.259145" height="13.259145" fill="white">
             <use xlink:href="#path-3"></use>
         </mask>
     </defs>
-    <g id="Medal" stroke="none" fill="none" transform="translate(-741.000000, -1333.000000)" stroke-width="2">
-        <use id="Rectangle" stroke="#979797" mask="url(#mask-2)" transform="translate(39.572330, 39.803301) rotate(45.000000) translate(-39.572330, -39.803301) " xlink:href="#path-1"></use>
-        <use id="Rectangle" stroke="#979797" mask="url(#mask-4)" transform="translate(98.572330, 39.803301) scale(-1, 1) rotate(45.000000) translate(-98.572330, -39.803301) " xlink:href="#path-3"></use>
+    <g id="Medal" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-739.000000, -1333.000000)">
+        <g id="Rectangle" stroke="#1BADC3" stroke-width="2">
+            <use mask="url(#mask-2)" transform="translate(38.703002, 40.933972) rotate(45.000000) translate(-38.703002, -40.933972) " xlink:href="#path-1"></use>
+            <use mask="url(#mask-4)" transform="translate(96.572330, 39.803301) scale(-1, 1) rotate(45.000000) translate(-96.572330, -39.803301) " xlink:href="#path-3"></use>
+        </g>
+        <path d="M17.5,11.5 L117.5,11.5" id="Line" stroke="#1BADC3" stroke-linecap="square"></path>
+        <path d="M29.5,22.5 L104.5,22.5" id="Line" stroke="#1BADC3" stroke-linecap="square"></path>
+        <circle id="Oval" stroke="#1BADC3" cx="67.5" cy="92.5" r="22.5"></circle>
     </g>
 </svg>

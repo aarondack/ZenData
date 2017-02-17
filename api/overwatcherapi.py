@@ -1,6 +1,6 @@
 import re
 from flask import Flask, render_template, jsonify, abort, request
-from competitive import build_competitive_average, build_combat_total, hero_list, api_fetch, build_top_heroes, user_achievements, build_about_user
+from competitive import build_competitive_average, build_combat_total, hero_list, api_fetch, build_top_heroes, user_achievements, build_about_user, build_winloss
 
 app = Flask(__name__, template_folder="../client")
 
@@ -17,18 +17,7 @@ def get_combat_averages(owUser, owCtry):
     tree = api_fetch(owUser,owCtry)
     stats = tree.xpath('//div[@id="competitive"]//div[@data-group-id="stats" and @data-category-id="0x02E00000FFFFFFFF"]//text()')
 
-    games_data = {}
-    for place in range(len(stats)):
-        result = re.match('Game+', stats[place])
-        if result:
-            games_data[stats[place]] = stats[place +1]
-    try:
-        games_data['WinLoss'] = float(games_data['Games Won']) / float(games_data['Games Lost'])
-        games_data['WinsMinsLosses'] = int(games_data['Games Won']) - int(games_data['Games Lost'])
-        print(games_data)
-    except:
-        print('brokeded it')
-
+    games_data = build_winloss(stats)
     total = build_combat_total(stats, headers)
     averages = build_competitive_average(tree.xpath('//div[@id="competitive"]//ul//text()'))
     about = build_about_user(tree.xpath('//img[@class="player-portrait"]/@src'))

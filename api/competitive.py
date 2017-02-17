@@ -53,7 +53,7 @@ def api_fetch(owUser, owCtry):
         page = requests.get(platform_url + owUser)
         tree = html.fromstring(page.content)
         return tree
-    countrl = 'https://playoverwatch.com/{}/career/psn/'.format(owCtry) 
+    countrl = 'https://playoverwatch.com/{}/career/psn/'.format(owCtry)
     page = requests.get(countrl + owUser)
     tree = html.fromstring(page.content)
     return tree
@@ -124,3 +124,16 @@ def build_about_user(tree):
         user_info['platform'] = 'psn'
         user_info['avatar'] = ''.join(tree)
     return user_info
+
+def build_winloss(stats):
+    games_data = {}
+    for place in range(len(stats)):
+        result = re.match('Game+', stats[place])
+        if result:
+            games_data[stats[place]] = stats[place +1]
+    try:
+        games_data['WinLoss'] = float(games_data['Games Won']) / float(games_data['Games Lost'])
+        games_data['WinsMinsLosses'] = int(games_data['Games Won']) - int(games_data['Games Lost'])
+    except:
+        print('brokeded it')
+    return games_data

@@ -1,37 +1,25 @@
 
-<svg width="137px" height="244px" viewBox="-736 -1648 137 244" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="133px" height="239px" viewBox="-736 -1648 133 239" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="48" y="37" width="38" height="112"></rect>
-        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="38" height="112" fill="white">
+        <rect id="path-1" x="48" y="36.3909465" width="38" height="110.156379"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="38" height="110.156379" fill="white">
             <use xlink:href="#path-1"></use>
         </mask>
-        <rect id="path-3" x="95" y="0" width="38" height="150" rx="19"></rect>
-        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="38" height="150" fill="white">
+        <rect id="path-3" x="95" y="0" width="38" height="147.530864" rx="19"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="38" height="147.530864" fill="white">
             <use xlink:href="#path-3"></use>
         </mask>
-        <rect id="path-5" x="0" y="75" width="38" height="75"></rect>
-        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="38" height="75" fill="white">
+        <rect id="path-5" x="0" y="73.7654321" width="38" height="73.7654321"></rect>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="38" height="73.7654321" fill="white">
             <use xlink:href="#path-5"></use>
         </mask>
     </defs>
-    <g id="General-Stats" stroke="none" fill="none" transform="translate(-736.000000, -1648.000000)">
-        <rect id="Rectangle" x="53" y="37" width="38" height="112"></rect>
-        <use id="Rectangle" stroke="#BCB9B9" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
-        <rect id="Rectangle" x="99" y="0" width="38" height="150" rx="19"></rect>
-        <use id="Rectangle" stroke="#BCB9B9" mask="url(#mask-4)" stroke-width="2" xlink:href="#path-3"></use>
-        <rect id="Rectangle" x="5" y="75" width="38" height="75"></rect>
-        <use id="Rectangle" stroke="#BCB9B9" mask="url(#mask-6)" stroke-width="2" fill-opacity="0" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+    <g id="General-Stats" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-736.000000, -1648.000000)">
+        <use id="Rectangle" stroke="#1BADC3" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+        <use id="Rectangle" stroke="#1BADC3" mask="url(#mask-4)" stroke-width="2" xlink:href="#path-3"></use>
+        <use id="Rectangle" stroke="#1BADC3" mask="url(#mask-6)" stroke-width="2" xlink:href="#path-5"></use>
         <path d="" id="Path-2" stroke="#979797" stroke-width="1.5"></path>
-        <path d="M74.5,57 L74.5,132" id="Line" stroke="#BCB9B9" stroke-width="1" stroke-linecap="square"></path>
-        <path d="M68.5,72 L68.5,132" id="Line" stroke="#BCB9B9" stroke-width="1" stroke-linecap="square"></path>
-        <path d="M62.5,85 L62.5,130" id="Line" stroke="#BCB9B9" stroke-width="1" stroke-linecap="square"></path>
-        <path d="M27.5,93 L27.5,131" id="Line" stroke="#BCB9B9" stroke-width="1" stroke-linecap="square"></path>
-        <path d="M21.5,100 L21.5,130" id="Line" stroke="#BCB9B9" stroke-width="1" stroke-linecap="square"></path>
-        <path d="M15.5,108 L15.5,131" id="Line" stroke="#BCB9B9" stroke-width="1" stroke-linecap="square"></path>
-        <path d="M120.5,19 L120.5,132" id="Line" stroke="#BCB9B9" stroke-width="1" stroke-linecap="square"></path>
-        <path d="M113.5,42 L113.5,132" id="Line" stroke="#BCB9B9" stroke-width="1" stroke-linecap="square"></path>
-        <path d="M105.5,55 L105.5,130" id="Line" stroke="#BCB9B9" stroke-width="1" stroke-linecap="square"></path>
     </g>
 </svg>
