@@ -45,18 +45,21 @@ achievements = {
 # Adding some CTRY_URL into the PSN_URL so we can make this more dynamic later if we'd like
 CTRY_URL = '/en-us/'
 PSN_URL = 'https://playoverwatch.com/en-us/career/psn/'
-
+# Test URL - http://127.0.0.1:5000/api/lSN00KI/en-us?platform=psn&country=en-us
 def api_fetch(owUser, owCtry):
     platform = request.args.get('platform')
-    if platform:
-        platform_url = 'https://playoverwatch.com/en-us/career/'+ platform + '/'
+    country = request.args.get('country')
+    if platform and country:
+        platform_url = 'https://playoverwatch.com/{}/career/{}/'.format(country, platform)
         page = requests.get(platform_url + owUser)
         tree = html.fromstring(page.content)
         return tree
-    countrl = 'https://playoverwatch.com/{}/career/psn/'.format(owCtry)
-    page = requests.get(countrl + owUser)
-    tree = html.fromstring(page.content)
-    return tree
+    else:
+        print("Please Enter a Platform and Country for the user!")
+    # countrl = 'https://playoverwatch.com/{}/career/psn/'.format(owCtry)
+    # page = requests.get(countrl + owUser)
+    # tree = html.fromstring(page.content)
+    # return tree
 
 def build_competitive_average(tree):
     competitive_averages = {}
