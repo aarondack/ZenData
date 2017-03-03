@@ -144,5 +144,5 @@ def build_winloss(stats):
 
 def check_error(inDict):
     noData = 'It appears there is no data available for this User :['
-    if(inDict == '') :
+    if(inDict == {}) :
         return noData

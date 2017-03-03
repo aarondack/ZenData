@@ -26,9 +26,7 @@ def get_combat_averages(owUser, owCtry):
     statBase['averages'] = averages
     statBase['stats'] = total
     statBase['winData'] = games_data
-
-    avatarCheck = statBase['about']
-    errorVal = check_error(avatarCheck['avatar'])
+    errorVal = check_error(statBase['averages'])
     if errorVal:
         return errorVal
     else:
@@ -39,11 +37,16 @@ def get_hero_data(owUser, owCtry):
     tree = api_fetch(owUser, owCtry)
     heroes = request.args.getlist('heroes')
     hero_data = {}
+    # test url : http://127.0.0.1:5000/api/lSN00KI/en-us/HeroData?heroes=zenyatta&heroes=reaper&heroes=roadhog&platform=psn&country=en-us
     for hero in heroes:
         abort_if_no_hero_hash(hero)
         hash_hero = hero_list[hero]
         hero_data[hero] = build_combat_total(tree.xpath('//div[@id="competitive"]//div[@data-group-id="stats" and @data-category-id="{}"]//text()'.format(hash_hero)), hero_headers)
-    return jsonify(hero_data)
+        errorVal = check_error(hero_data[hero])
+    if errorVal:
+        return errorVal
+    else:
+        return jsonify(hero_data)
 
 @app.route('/api/<string:owUser>/<string:owCtry>/achievements', methods=['GET'])
 def get_user_achievements(owUser, owCtry):
