@@ -1,3 +1,4 @@
+import sys
 import re
 import requests
 from flask import request
@@ -140,3 +141,8 @@ def build_winloss(stats):
     except:
         print('brokeded it')
     return games_data
+
+def check_error(inDict):
+    noData = 'It appears there is no data available for this User :['
+    if(inDict == '') :
+        return noData
