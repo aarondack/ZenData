@@ -52,13 +52,21 @@ def get_hero_data(owUser, owCtry):
 def get_user_achievements(owUser, owCtry):
     tree = api_fetch(owUser, owCtry)
     achievements = user_achievements(tree)
-    return jsonify(achievements)
+    errorVal = check_error(achievements['General'])
+    if errorVal:
+        return errorVal
+    else:
+        return jsonify(achievements)
 
 @app.route('/api/<string:owUser>/<string:owCtry>/topheroes', methods=['GET'])
 def get_top_heroes(owUser, owCtry):
     tree = api_fetch(owUser, owCtry)
     top_heroes = build_top_heroes(tree)
-    return jsonify(top_heroes)
+    errorVal = check_error(top_heroes['Games Won'])
+    if errorVal:
+        return errorVal
+    else:
+        return jsonify(top_heroes)
 
 def abort_if_no_hero_hash(hero):
     if hero not in hero_list:
