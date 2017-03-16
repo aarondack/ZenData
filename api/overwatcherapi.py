@@ -11,10 +11,10 @@ hero_headers = ['Hero Specific','Combat', 'Assists', 'Best', 'Deaths', 'Match Aw
 def index():
     return render_template('index.html')
 
-@app.route('/api/<string:owUser>/<string:owCtry>', methods=['GET'])
-def get_combat_averages(owUser, owCtry):
+@app.route('/api/<string:owUser>/', methods=['GET'])
+def get_combat_averages(owUser):
     statBase = {}
-    tree = api_fetch(owUser,owCtry)
+    tree = api_fetch(owUser)
     stats = tree.xpath('//div[@id="competitive"]//div[@data-group-id="stats" and @data-category-id="0x02E00000FFFFFFFF"]//text()')
 
     games_data = build_winloss(stats)
@@ -32,12 +32,12 @@ def get_combat_averages(owUser, owCtry):
     else:
         return jsonify(statBase)
 
-@app.route('/api/<string:owUser>/<string:owCtry>/HeroData', methods=['GET'])
-def get_hero_data(owUser, owCtry):
-    tree = api_fetch(owUser, owCtry)
+@app.route('/api/<string:owUser>/HeroData', methods=['GET'])
+def get_hero_data(owUser):
+    tree = api_fetch(owUser)
     heroes = request.args.getlist('heroes')
     hero_data = {}
-    # test url : http://127.0.0.1:5000/api/lSN00KI/en-us/HeroData?heroes=zenyatta&heroes=reaper&heroes=roadhog&platform=psn&country=en-us
+    # test url : http://127.0.0.1:5000/api/lSN00KI/HeroData?heroes=zenyatta&heroes=reaper&heroes=roadhog&platform=psn&country=en-us
     for hero in heroes:
         abort_if_no_hero_hash(hero)
         hash_hero = hero_list[hero]
@@ -48,9 +48,9 @@ def get_hero_data(owUser, owCtry):
     else:
         return jsonify(hero_data)
 
-@app.route('/api/<string:owUser>/<string:owCtry>/achievements', methods=['GET'])
-def get_user_achievements(owUser, owCtry):
-    tree = api_fetch(owUser, owCtry)
+@app.route('/api/<string:owUser>/achievements', methods=['GET'])
+def get_user_achievements(owUser):
+    tree = api_fetch(owUser)
     achievements = user_achievements(tree)
     errorVal = check_error(achievements['General'])
     if errorVal:
@@ -58,9 +58,9 @@ def get_user_achievements(owUser, owCtry):
     else:
         return jsonify(achievements)
 
-@app.route('/api/<string:owUser>/<string:owCtry>/topheroes', methods=['GET'])
-def get_top_heroes(owUser, owCtry):
-    tree = api_fetch(owUser, owCtry)
+@app.route('/api/<string:owUser>/topheroes', methods=['GET'])
+def get_top_heroes(owUser):
+    tree = api_fetch(owUser)
     top_heroes = build_top_heroes(tree)
     errorVal = check_error(top_heroes['Games Won'])
     if errorVal:

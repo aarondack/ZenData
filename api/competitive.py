@@ -46,8 +46,8 @@ achievements = {
 # Adding some CTRY_URL into the PSN_URL so we can make this more dynamic later if we'd like
 CTRY_URL = '/en-us/'
 PSN_URL = 'https://playoverwatch.com/en-us/career/psn/'
-# Test URL - http://127.0.0.1:5000/api/lSN00KI/en-us?platform=psn&country=en-us
-def api_fetch(owUser, owCtry):
+# Test URL - http://127.0.0.1:5000/api/lSN00KI/?platform=psn&country=en-us
+def api_fetch(owUser):
     platform = request.args.get('platform')
     country = request.args.get('country')
     if platform and country:
@@ -139,7 +139,12 @@ def build_winloss(stats):
         games_data['WinLoss'] = float(games_data['Games Won']) / float(games_data['Games Lost'])
         games_data['WinsMinsLosses'] = int(games_data['Games Won']) - int(games_data['Games Lost'])
     except:
-        print('brokeded it')
+        if not 'Games Won' in games_data:
+            games_data['WinLoss'] = 'Not enough data'
+            games_data['WinsMinsLosses'] = 'Not enough data'
+        if not 'Games Lost' in games_data:
+            games_data['WinLoss'] = 'What? No losses? Really?'
+            games_data['WinsMinsLosses'] = 'What? No losses? Really?'
     return games_data
 
 def check_error(inDict):
