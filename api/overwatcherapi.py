@@ -1,4 +1,5 @@
 import re
+import werkzeug
 from flask import Flask, render_template, jsonify, abort, request
 from competitive import build_competitive_average, build_combat_total, hero_list, api_fetch, build_top_heroes, user_achievements, build_about_user, build_winloss, check_error
 
@@ -10,6 +11,10 @@ hero_headers = ['Hero Specific','Combat', 'Assists', 'Best', 'Deaths', 'Match Aw
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.errorhandler(404)
+def handle_notfound(e):
+    return '<p> Sorry this page does not exist! <p>'
 
 @app.route('/api/<string:owUser>/', methods=['GET'])
 def get_combat_averages(owUser):

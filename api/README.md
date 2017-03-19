@@ -1,9 +1,12 @@
-#API
-####Returns a blob of information about your profile including averages as well as complete combat stats for all heroes.
+# API
+
+#### Returns a blob of information about your profile including averages as well as complete combat stats for all heroes.
 <pre><b>GET /api/:battlenet</b></pre>
 
+*Within this readme, replace 'alexthecat' with your desired user & replace querystring vars 'country' & 'platform' with your desired country and platform.*
+
 Example:
-<pre><i>https://foobar.com/api/alexthecat</i></pre>
+<pre><i>https://foobar.com/api/alexthecat/?country=en-us&plaform=psn</i></pre>
 
 Returns:
 ```javascript
@@ -91,14 +94,16 @@ Returns:
     }
 }
 ```
+
+
 ####Returns hero level statistics for the given battlenet user.
 <pre><b>GET /api/:battlenet/[:hero]</b></pre>
 
 Example:
-<pre><i>https://foobar.com/api/alexthecat/HeroData?heroes=zenyatta&heroes=reaper</i></pre>
+<pre><i>https://foobar.com/api/alexthecat/HeroData?heroes=zenyatta&heroes=reaper&country=en-us&platform=psn</i></pre>
 Returns:
 ```javascript
-{
+{	
   "reaper": {
     "Assists": {
       "Healing Done": "8,430",
@@ -207,12 +212,13 @@ Returns:
   }
 }
 ```
+*Note: if submitted user is does not have enough information on each submitted hero for the given Competitive Season, the api will give you an error.*
 
 ####Returns Top Heroes statistics based on Time Played, Games Won, Win%, etc.
 <pre><b>GET /api/:battlenet/topheroes</b></pre>
 
 Example:
-<pre><i>https://foobar.com/api/alexthecat/topheroes</i></pre>
+<pre><i>https://foobar.com/api/alexthecat/topheroes?country=en-us&platform=psn</i></pre>
 Returns:
 
 ```javascript
@@ -321,7 +327,7 @@ Returns:
 <pre><b>GET /api/:battlenet/achievements</b></pre>
 
 Example:
-<pre><i>https://foobar.com/api/alexthecat/achievements</i></pre>
+<pre><i>https://foobar.com/api/alexthecat/achievements?country=en-us&platform=psn</i></pre>
 Returns:
 
 ```javascript
@@ -401,10 +407,3 @@ Returns:
     }
 }
 ```
-####TODO
-* ~~/heroes endpoint accept array of heroes~~
-* ~~/achievements~~
-* ~~Top hero stats~~
-* ~~playtimes for heroes~~
-* support countries, ~~platforms~~
-* ~~extract duplicate logic into outside func~~
