@@ -96,7 +96,7 @@ Returns:
 ```
 
 
-####Returns hero level statistics for the given battlenet user.
+#### Returns hero level statistics for the given battlenet user.
 <pre><b>GET /api/:battlenet/[:hero]</b></pre>
 
 Example:
@@ -214,7 +214,7 @@ Returns:
 ```
 *Note: if submitted user is does not have enough information on each submitted hero for the given Competitive Season, the api will give you an error.*
 
-####Returns Top Heroes statistics based on Time Played, Games Won, Win%, etc.
+#### Returns Top Heroes statistics based on Time Played, Games Won, Win%, etc.
 <pre><b>GET /api/:battlenet/topheroes</b></pre>
 
 Example:
@@ -323,7 +323,7 @@ Returns:
 }
 ```
 
-####Returns achievements such as Defense, Maps, Offense for the given battlenet user in Overwatch.
+#### Returns achievements such as Defense, Maps, Offense for the given battlenet user in Overwatch.
 <pre><b>GET /api/:battlenet/achievements</b></pre>
 
 Example:

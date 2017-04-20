@@ -1,13 +1,13 @@
-#ZenData
+# ZenData
 This is an API currently in building phases for getting read-only information about players and their heroes from overwatch.
 
-#To start
+# To start
 1. Clone the repository
 2. Create a new virtual environment
 3. Install the requirements with ```pip install -r requirements.txt```
 4. Start the server ```python api```
 
-#To start FE
+# To start FE
 1. Navigate into the client directory
 2. ```npm install```
 3. ```npm run dev```
